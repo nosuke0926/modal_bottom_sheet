@@ -16,10 +16,12 @@ class BarBottomSheet extends StatelessWidget {
   final double? elevation;
   final ShapeBorder? shape;
   final SystemUiOverlayStyle? overlayStyle;
+  final bool isShowBar;
 
   const BarBottomSheet({
     Key? key,
     required this.child,
+    required this.isShowBar,
     this.control,
     this.clipBehavior,
     this.shape,
@@ -44,7 +46,7 @@ class BarBottomSheet extends StatelessWidget {
                     height: 6,
                     width: 40,
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: isShowBar ? Colors.white : Colors.transparent,
                         borderRadius: BorderRadius.circular(6)),
                   ),
             ),
@@ -95,6 +97,7 @@ Future<T?> showBarModalBottomSheet<T>({
   RouteSettings? settings,
   SystemUiOverlayStyle? overlayStyle,
   double? closeProgressThreshold,
+  bool isShowBar = true,
 }) async {
   assert(debugCheckHasMediaQuery(context));
   assert(debugCheckHasMaterialLocalizations(context));
@@ -111,6 +114,7 @@ Future<T?> showBarModalBottomSheet<T>({
       backgroundColor: backgroundColor,
       elevation: elevation,
       overlayStyle: overlayStyle,
+      isShowBar: isShowBar,
     ),
     secondAnimationController: secondAnimation,
     expanded: expand,
