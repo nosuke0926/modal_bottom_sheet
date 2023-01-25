@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 import '../modal_bottom_sheet.dart';
 import 'bottom_sheet_route.dart';
@@ -39,11 +39,6 @@ class MaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
     }
 
     super.didChangeNext(nextRoute);
-  }
-
-  @override
-  void didPopNext(Route nextRoute) {
-    super.didPopNext(nextRoute);
   }
 
   @override
