@@ -55,6 +55,8 @@ class BarBottomSheet extends StatelessWidget {
               flex: 1,
               fit: FlexFit.loose,
               child: Material(
+                borderOnForeground:
+                    false, // Remove a unwanted line from the boundary
                 shape: shape ??
                     RoundedRectangleBorder(
                       side: BorderSide(),
